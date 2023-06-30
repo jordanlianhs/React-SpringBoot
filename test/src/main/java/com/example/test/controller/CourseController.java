@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.test.model.Student;
-import com.example.test.view.StudentView;
+import com.example.test.model.Course;
+import com.example.test.view.CourseView;
 
 @RestController
-@RequestMapping("/student")
-public class StudentController {
+@RequestMapping("/course")
+public class CourseController {
     @Autowired
-    private StudentView studentView;
+    private CourseView courseView;
 
     @PostMapping("/add")
-    public String add(@RequestBody Student student) {
-        studentView.saveStudent(student);
-        return "New student is added to the database.";
+    public String add(@RequestBody Course course) {
+        courseView.saveCourse(course);
+        return "New course is added to the database.";
     }
 }
