@@ -1,4 +1,6 @@
 package com.example.test.view;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,10 @@ public class StudentViewImpl implements StudentView{
     @Override
     public Student saveStudent(Student student) {
         return studentRepository.save(student);
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
     }
 }

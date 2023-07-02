@@ -1,6 +1,9 @@
 package com.example.test.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,5 +22,10 @@ public class StudentController {
     public String add(@RequestBody Student student) {
         studentView.saveStudent(student);
         return "New student is added to the database.";
+    }
+
+    @GetMapping("/getAll")
+    public List<Student> getAll() {
+        return studentView.getAllStudents();
     }
 }
